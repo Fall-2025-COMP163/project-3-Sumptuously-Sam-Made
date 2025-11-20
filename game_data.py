@@ -41,6 +41,9 @@ def load_quests(filename="data/quests.txt"):
     # - FileNotFoundError → raise MissingDataFileError
     # - Invalid format → raise InvalidDataFormatError
     # - Corrupted/unreadable data → raise CorruptedDataError
+    if filename.isfile():
+        raise MissingDataFileError
+    elif file
     pass
 
 def load_items(filename="data/items.txt"):
@@ -75,7 +78,12 @@ def validate_quest_data(quest_dict):
     # TODO: Implement validation
     # Check that all required keys exist
     # Check that numeric values are actually numbers
-    pass
+    fields = [quest_id, title, description, reward_xp, reward_gold, required_level, prerequisite]
+    for required in fields:
+        if required not in quest_dict or not required.isnumeric():
+            raise InvalidDataFormatError
+            return None
+    return True
 
 def validate_item_data(item_dict):
     """
@@ -88,7 +96,12 @@ def validate_item_data(item_dict):
     Raises: InvalidDataFormatError if missing required fields or invalid type
     """
     # TODO: Implement validation
-    pass
+    fields = item_id, name, type, effect, cost, description
+    for required in fields:
+        if required not in item_dict or (required == "type" and not (item_dict[required] == weapon or item_dict[required] == armor, item_dict[required] == consumable)):
+            raise InvalidDataFormatError
+            return None
+    return True
 
 def create_default_data_files():
     """
@@ -119,7 +132,18 @@ def parse_quest_block(lines):
     # Split each line on ": " to get key-value pairs
     # Convert numeric strings to integers
     # Handle parsing errors gracefully
-    pass
+    quest_dict = {}
+    count = 0
+    sp_lines = lines.split(":")
+    for line in sp_lines:
+        count += 1
+        if count % 2 == 1:
+            key = line
+        else:
+            if line.isnumeric():
+                quest_dict[key] = int(line)
+            else:
+                quest_dict[key] = line
 
 def parse_item_block(lines):
     """
@@ -132,7 +156,15 @@ def parse_item_block(lines):
     Raises: InvalidDataFormatError if parsing fails
     """
     # TODO: Implement parsing logic
-    pass
+    item_dict = {}
+    count = 0
+        sp_lines = lines.split(":")
+    for line in sp_lines:
+        count += 1
+        if count % 2 == 1:
+            key = line
+        else:
+            quest_dict[key] = int(line)
 
 # ============================================================================
 # TESTING
