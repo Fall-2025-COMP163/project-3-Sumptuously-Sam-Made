@@ -41,10 +41,15 @@ def load_quests(filename="data/quests.txt"):
     # - FileNotFoundError → raise MissingDataFileError
     # - Invalid format → raise InvalidDataFormatError
     # - Corrupted/unreadable data → raise CorruptedDataError
-    if filename.isfile():
-        raise MissingDataFileError
-    elif file
-    pass
+    try:
+        with open(filename, "r") as file:
+            content = file.read()
+    except FileNotFoundError:
+        raise MissingDateFileError
+    except SyntaxError:
+        raise InvalidDateFormatError
+    except NotADirectoryError:
+        raise CorruptedDataError                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 
 def load_items(filename="data/items.txt"):
     """
