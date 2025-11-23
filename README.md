@@ -3,6 +3,10 @@
 # COMP 163: Project 3 - Quest Chronicles
 
 **AI Usage: Free Use (with explanation requirement)**
+AI helped me understand tryexcept statements
+AI helped me understand custom exceptions
+AI
+
 
 ## Overview
 
