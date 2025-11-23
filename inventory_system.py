@@ -165,7 +165,7 @@ def equip_weapon(character, item_id, item_data):
     # Parse effect and apply to character stats
     # Store equipped_weapon in character dictionary
     # Remove item from inventory
-    if item
+    pass
 
 def equip_armor(character, item_id, item_data):
     """
