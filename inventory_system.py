@@ -138,8 +138,6 @@ def use_item(character, item_id, item_data):
     # Apply effect to character
     # Remove item from inventory
     pass
-    try:
-        if item_id in character["inventory"]:
 
 def equip_weapon(character, item_id, item_data):
     """
