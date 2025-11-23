@@ -137,9 +137,9 @@ def use_item(character, item_id, item_data):
     # Parse effect (format: "stat_name:value" e.g., "health:20")
     # Apply effect to character
     # Remove item from inventory
+    pass
     try:
         if item_id in character["inventory"]:
-    pass
 
 def equip_weapon(character, item_id, item_data):
     """
