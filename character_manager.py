@@ -247,7 +247,7 @@ def is_character_dead(character):
     Returns: True if dead, False if alive
     """
     # TODO: Implement death check
-    if character["health"] < 0:
+    if character["health"] <= 0:
         return True
     else:
         return False
