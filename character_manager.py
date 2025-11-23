@@ -47,11 +47,26 @@ def create_character(name, character_class):
     # - inventory=[], active_quests=[], completed_quests=[]
     
     # Raise InvalidCharacterClassError if class not in valid list
-
-    class Character:
-        def __init__(self, name, char_class, level, health, max_health, strength, magic, experienc4e, gold, inventory, active_quests, completed quests):
-    if character_class == "Warrior":  
-        character_class == "Mage" or character_class == "Rogue" or character_class == "Cleric":
+    
+    character_dict = {"name":name, "character_class":character_class, "level":1, "health":0,"max_health":2000 "strength":0, "magic":0, "experience":0, "gold":0, "inventory":[], "active_quests":[], "completed_quests":[]}
+    if character_class = "Warrior":
+        character_dict["health"] = 120
+        character_dict["strength"] = 15
+        character_dict["magic"] = 5
+    elif character_class = "Mage":
+        character_dict["health"] = 80
+        character_dict["strength"] = 8
+        character_dict["magic"] = 20        
+    elif character_class = "Rogue":
+        character_dict["health"] = 90
+        character_dict["strength"] = 12
+        character_dict["magic"] = 10
+    elif character_class = "Cleric":
+        character_dict["health"] = 100
+        character_dict["strength"] = 10
+        character_dict["magic"] = 15
+    else:
+        raise InvalidCharacterClassError
         
 
 
@@ -82,7 +97,13 @@ def save_character(character, save_directory="data/save_games"):
     # Create save_directory if it doesn't exist
     # Handle any file I/O errors appropriately
     # Lists should be saved as comma-separated values
-    pass
+    try:
+        if not os.path.isdir(save_directory):
+            return True
+    except PermissionError:
+        raise PermissionError
+    except IOError:
+        raise IOError
 
 def load_character(character_name, save_directory="data/save_games"):
     """
@@ -103,7 +124,7 @@ def load_character(character_name, save_directory="data/save_games"):
     # Try to read file → SaveFileCorruptedError
     # Validate data format → InvalidSaveDataError
     # Parse comma-separated lists back into Python lists
-    pass
+    
 
 def list_saved_characters(save_directory="data/save_games"):
     """
