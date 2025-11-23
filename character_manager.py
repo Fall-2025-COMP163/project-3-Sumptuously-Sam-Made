@@ -50,20 +50,24 @@ def create_character(name, character_class):
     
     # Raise InvalidCharacterClassError if class not in valid list
     
-    character_dict = {"name":name, "character_class":character_class, "level":1, "health":0,"max_health":2000 "strength":0, "magic":0, "experience":0, "gold":0, "inventory":[], "active_quests":[], "completed_quests":[]}
+    character_dict = {"name":name, "character_class":character_class, "level":1, "health":0,"max_health":0, "strength":0, "magic":0, "experience":0, "gold":0, "inventory":[], "active_quests":[], "completed_quests":[]}
     if character_class = "Warrior":
+        character_dict["max_health"] = 120
         character_dict["health"] = 120
         character_dict["strength"] = 15
         character_dict["magic"] = 5
     elif character_class = "Mage":
+        character_dict["max_health"] = 80
         character_dict["health"] = 80
         character_dict["strength"] = 8
         character_dict["magic"] = 20        
     elif character_class = "Rogue":
+        character_dict["max_health"] = 90
         character_dict["health"] = 90
         character_dict["strength"] = 12
         character_dict["magic"] = 10
     elif character_class = "Cleric":
+        character_dict["max_health"] = 100
         character_dict["health"] = 100
         character_dict["strength"] = 10
         character_dict["magic"] = 15
