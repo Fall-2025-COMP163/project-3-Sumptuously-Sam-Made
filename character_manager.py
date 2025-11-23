@@ -56,21 +56,25 @@ def create_character(name, character_class):
         character_dict["health"] = 120
         character_dict["strength"] = 15
         character_dict["magic"] = 5
+        return character_dict
     elif character_class == "Mage":
         character_dict["max_health"] = 80
         character_dict["health"] = 80
         character_dict["strength"] = 8
-        character_dict["magic"] = 20        
+        character_dict["magic"] = 20
+        return character_dict
     elif character_class == "Rogue":
         character_dict["max_health"] = 90
         character_dict["health"] = 90
         character_dict["strength"] = 12
         character_dict["magic"] = 10
+        return character_dict
     elif character_class == "Cleric":
         character_dict["max_health"] = 100
         character_dict["health"] = 100
         character_dict["strength"] = 10
         character_dict["magic"] = 15
+        return character_dict
     else:
         raise InvalidCharacterClassError
         
