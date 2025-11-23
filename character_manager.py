@@ -141,7 +141,7 @@ def load_character(character_name, save_directory="data/save_games"):
             if filename in read:
                 return filename
     except FileNotFoundError:
-        raise MissingDateFileError
+        raise CharacterNotFoundError
     except SyntaxError:
         raise InvalidDateFormatError
     except NotADirectoryError:
