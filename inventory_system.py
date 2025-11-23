@@ -238,7 +238,6 @@ def purchase_item(character, item_id, item_data):
     # Check if inventory has space
     # Subtract gold from character
     # Add item to inventory
-    if item_data["cost"] > character["gold"]:
     pass
 
 def sell_item(character, item_id, item_data):
@@ -318,7 +317,6 @@ def display_inventory(character, item_data_dict):
     # TODO: Implement inventory display
     # Count items (some may appear multiple times)
     # Display with item names from item_data_dict
-
     pass
 
 # ============================================================================
