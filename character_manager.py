@@ -47,7 +47,13 @@ def create_character(name, character_class):
     # - inventory=[], active_quests=[], completed_quests=[]
     
     # Raise InvalidCharacterClassError if class not in valid list
-    pass
+
+    class Character:
+        def __init__(self, name, char_class, level, health, max_health, strength, magic, experienc4e, gold, inventory, active_quests, completed quests):
+    if character_class == "Warrior":  
+        character_class == "Mage" or character_class == "Rogue" or character_class == "Cleric":
+        
+
 
 def save_character(character, save_directory="data/save_games"):
     """
