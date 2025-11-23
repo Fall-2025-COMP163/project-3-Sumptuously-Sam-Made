@@ -107,7 +107,7 @@ def save_character(character, save_directory="data/save_games"):
     try:
         if not os.path.isdir(save_directory):
             with open(save_directory, 'w') as f:
-            f.write(filename)
+                f.write(filename)
             return True
     except PermissionError:
         raise PermissionError
