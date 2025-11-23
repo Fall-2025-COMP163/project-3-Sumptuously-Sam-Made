@@ -163,7 +163,7 @@ def parse_item_block(lines):
     # TODO: Implement parsing logic
     item_dict = {}
     count = 0
-        sp_lines = lines.split(":")
+    sp_lines = lines.split(":")
     for line in sp_lines:
         count += 1
         if count % 2 == 1:
