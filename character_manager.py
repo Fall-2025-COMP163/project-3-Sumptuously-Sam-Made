@@ -103,7 +103,7 @@ def save_character(character, save_directory="data/save_games"):
     # Create save_directory if it doesn't exist
     # Handle any file I/O errors appropriately
     # Lists should be saved as comma-separated values
-    filename = f"{character["name"]_save.txt"}
+    filename = f"{character["name"]}_save.txt"
     try:
         if not os.path.isdir(save_directory):
             with open(save_directory, 'w') as f:
