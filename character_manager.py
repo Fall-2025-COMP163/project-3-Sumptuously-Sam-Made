@@ -103,8 +103,11 @@ def save_character(character, save_directory="data/save_games"):
     # Create save_directory if it doesn't exist
     # Handle any file I/O errors appropriately
     # Lists should be saved as comma-separated values
+    filename = f"{character["name"]_save.txt"}
     try:
         if not os.path.isdir(save_directory):
+            with open(save_directory, 'w') as f:
+            f.write(filename)
             return True
     except PermissionError:
         raise PermissionError
@@ -130,10 +133,13 @@ def load_character(character_name, save_directory="data/save_games"):
     # Try to read file → SaveFileCorruptedError
     # Validate data format → InvalidSaveDataError
     # Parse comma-separated lists back into Python lists
+    
+    filename = f"{character_name}_save.txt"
     try:
-        with open(filename, "r") as file:
-            content = file.read()
-            return content
+        with open(save_directory, "r") as file:
+            read = file.read()
+            if filename in read:
+                return filename
     except FileNotFoundError:
         raise MissingDateFileError
     except SyntaxError:
