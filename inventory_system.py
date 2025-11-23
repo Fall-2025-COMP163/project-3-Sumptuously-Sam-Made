@@ -292,6 +292,7 @@ def apply_stat_effect(character, stat_name, value):
     # TODO: Implement stat application
     # Add value to character[stat_name]
     # If stat is health, ensure it doesn't exceed max_health
+
     if stat_name == "strength":
         character["strength"] += value
     elif stat_name == "magic":
@@ -299,7 +300,7 @@ def apply_stat_effect(character, stat_name, value):
     elif stat_name == "max_health":
         character["max_health"] += value
     elif stat_name == "health":
-        if (character["health"] += value) <= max_health:
+        if (character["health"] + value) < max_health:
             character["health"] += value
         else:
             character["health"] = character["max_health"]
