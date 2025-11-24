@@ -142,8 +142,8 @@ def use_item(character, item_id, item_data):
     # Remove item from inventory
 
     if item_id in character["inventory"]:
-        if item_data[item_id]["type"] == "consumable":
-            stat_value = item_data[item_id]["effect"].split(":")
+        if item_data["type"] == "consumable":
+            stat_value = item_data["effect"].split(":")
             character[stat_value[0]] += character[stat_value[1]]
             character["inventory"].remove(item_id)
             return f"{character[stat_value[1]]} was added to {character[stat_value[0]]} because of a consumable"
@@ -180,11 +180,11 @@ def equip_weapon(character, item_id, item_data):
     # Remove item from inventory
 
     if item_id in character["inventory"]:
-        if item_data[item_id]["type"] == "weapon":
+        if item_data["type"] == "weapon":
             if "equipped_weapon" in character:
                 unequip_weapon(character)
             else:
-                stat_val = item_data[item_id]["effect"].split(":")
+                stat_val = item_data["effect"].split(":")
                 character["equipped_weapon"] = item_id
                 character["inventory"].remove(item_id)
                 f"{character[stat_value[1]]} was added to {character[stat_value[0]]} because of a weapon"
@@ -217,11 +217,11 @@ def equip_armor(character, item_id, item_data):
     # Similar to equip_weapon but for armor
     
     if item_id in character["inventory"]:
-        if item_data[item_id]["type"] == "armor":
+        if item_data["type"] == "armor":
             if "equipped_armor" in character:
                 unequip_armor(character)
             else:
-                stat_val = item_data[item_id]["effect"].split(":")
+                stat_val = item_data["effect"].split(":")
                 character["equipped_weapon"] = item_id
                 character["inventory"].remove(item_id)
                 f"{character[stat_value[1]]} was added to {character[stat_value[0]]} because of an armor piece"
@@ -298,7 +298,7 @@ def purchase_item(character, item_id, item_data):
     # Check if inventory has space
     # Subtract gold from character
     # Add item to inventory
-    if character["gold"] >= item_data[item_id]["cost"]:
+    if character["gold"] >= item_data["cost"]:
         if len(character["inventory"]) < MAX_INVENTORY_SIZE:
             character["gold"] -= character["cost"]
             character["inventory"].append(item_id)
