@@ -60,7 +60,9 @@ def remove_item_from_inventory(character, item_id):
     # Remove item from list
     if item_id in character["inventory"]:
         character["inventory"].remove(item_id)
-
+        True
+    else:
+        raise ItemNotFoundError
 
 def has_item(character, item_id):
     """
