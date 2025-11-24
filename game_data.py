@@ -43,7 +43,13 @@ def load_quests(filename="data/quests.txt"):
     # - Corrupted/unreadable data → raise CorruptedDataError
     try:
         with open(filename, "r") as file:
-            content = file.read()
+            content = file.readlines()
+            for line in content:
+                sp_line = line.split(":").strip()
+                if sp_line == QUEST_ID:
+                    
+                
+            
     except FileNotFoundError:
         raise MissingDateFileError
     except SyntaxError:
@@ -68,7 +74,7 @@ def load_items(filename="data/items.txt"):
     """
     # TODO: Implement this function
     # Must handle same exceptions as load_quests
-    pass
+    
 
 def validate_quest_data(quest_dict):
     """
