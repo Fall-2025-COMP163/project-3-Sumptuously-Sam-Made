@@ -42,13 +42,19 @@ def load_quests(filename="data/quests.txt"):
     # - Invalid format → raise InvalidDataFormatError
     # - Corrupted/unreadable data → raise CorruptedDataError
     try:
+        data_dict = {}
         with open(filename, "r") as file:
             content = file.readlines()
             for line in content:
-                sp_line = line.split(":").strip()
-                if sp_line == QUEST_ID:
-                    
-                
+                if line == "":
+                    quest_date_dict[key] = data_dict
+                else:
+                    sp_line = line.split(":").strip()
+                    if sp_line[0] == "QUEST_ID":
+                        key = sp_line[1]
+                    else:
+                        data_dict[sp_line[0].lower()] = sp_line[1]
+        return quest_data_dict
             
     except FileNotFoundError:
         raise MissingDateFileError
@@ -75,6 +81,27 @@ def load_items(filename="data/items.txt"):
     # TODO: Implement this function
     # Must handle same exceptions as load_quests
     
+    try:
+        data_dict = {}
+        with open(filename, "r") as file:
+            content = file.readlines()
+            for line in content:
+                if line == "":
+                    item_date_dict[key] = data_dict
+                else:
+                    sp_line = line.split(":").strip()
+                    if sp_line[0] == "ITEM_ID":
+                        key = sp_line[1]
+                    else:
+                        data_dict[sp_line[0].lower()] = sp_line[1]
+        return item_data_dict
+            
+    except FileNotFoundError:
+        raise MissingDateFileError
+    except SyntaxError:
+        raise InvalidDateFormatError
+    except NotADirectoryError:
+        raise CorruptedDataError        
 
 def validate_quest_data(quest_dict):
     """
@@ -89,6 +116,7 @@ def validate_quest_data(quest_dict):
     # TODO: Implement validation
     # Check that all required keys exist
     # Check that numeric values are actually numbers
+    
     fields = [quest_id, title, description, reward_xp, reward_gold, required_level, prerequisite]
     for required in fields:
         if required not in quest_dict or not required.isnumeric():
