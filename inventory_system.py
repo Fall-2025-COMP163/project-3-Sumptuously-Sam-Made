@@ -137,7 +137,16 @@ def use_item(character, item_id, item_data):
     # Parse effect (format: "stat_name:value" e.g., "health:20")
     # Apply effect to character
     # Remove item from inventory
-    pass
+
+    if item_id in character["inventory"]:
+        if item_data["type"] == "consumable":
+            stat_value = item_data["effect"].split(":")
+            character[stat_value[0]] += character[stat_value[1]]
+            character["inventory"].remove(item_id)
+        else:
+            raise InvalidItemTypeError
+    else:
+        raise ItemNotFoundError
 
 def equip_weapon(character, item_id, item_data):
     """
@@ -165,7 +174,15 @@ def equip_weapon(character, item_id, item_data):
     # Parse effect and apply to character stats
     # Store equipped_weapon in character dictionary
     # Remove item from inventory
-    pass
+
+    if item_id in character["inventory"]:
+        if item_data["type"] == "weapon":
+            if "equipped_weapon" in character:
+                unequip_weapon(character)
+            else:
+                stat_val = item_data["effect"].split(":")
+                character["equipped_weapon"] = item_id
+                character["inventory"].remove(item_id)
 
 def equip_armor(character, item_id, item_data):
     """
@@ -189,7 +206,15 @@ def equip_armor(character, item_id, item_data):
     """
     # TODO: Implement armor equipping
     # Similar to equip_weapon but for armor
-    pass
+    
+    if item_id in character["inventory"]:
+        if item_data["type"] == "armor":
+            if "equipped_weapon" in character:
+                unequip_armor(character)
+            else:
+                stat_val = item_data["effect"].split(":")
+                character["equipped_weapon"] = item_id
+                character["inventory"].remove(item_id)
 
 def unequip_weapon(character):
     """
@@ -203,7 +228,15 @@ def unequip_weapon(character):
     # Remove stat bonuses
     # Add weapon back to inventory
     # Clear equipped_weapon from character
-    pass
+    if "equipped_weapon" in character:
+        bef_weapon = character["equipped_weapon"
+        character[stat_val[0]] -= character[stat_val[1]]
+        character["inventory"].append(character["equipped_weapon"])
+        character["equipped_weapon"] = ""
+        return bef_weapon
+    else:
+        return None
+        
 
 def unequip_armor(character):
     """
@@ -213,7 +246,14 @@ def unequip_armor(character):
     Raises: InventoryFullError if inventory is full
     """
     # TODO: Implement armor unequipping
-    pass
+    if "equipped_armor" in character:
+        bef_armor = character["equipped_armor"
+        character[stat_val[0]] -= character[stat_val[1]]
+        character["inventory"].append(character["equipped_armor"])
+        character["equipped_armor"] = ""
+        return bef_armor
+    else:
+        return None
 
 # ============================================================================
 # SHOP SYSTEM
