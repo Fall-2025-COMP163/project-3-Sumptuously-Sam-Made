@@ -101,7 +101,7 @@ def complete_quest(character, quest_id, quest_data_dict):
             character["completed_quests"].append(quest_id)
             character_manager.gain_experience(character, quest_data_dict["reward_xp"])
             character_manager.add_gold(character, quest_data_dict["reward_gold"])
-            return f"({quest_data_dict["reward_xp"]}, quest_data_dict["reward_gold"]}"
+            return f"{quest_data_dict["reward_xp"]}, {quest_data_dict["reward_gold"]}"
                                               
 
 def abandon_quest(character, quest_id):
