@@ -229,7 +229,7 @@ def unequip_weapon(character):
     # Add weapon back to inventory
     # Clear equipped_weapon from character
     if "equipped_weapon" in character:
-        bef_weapon = character["equipped_weapon"
+        bef_weapon = character["equipped_weapon"]
         character[stat_val[0]] -= character[stat_val[1]]
         character["inventory"].append(character["equipped_weapon"])
         character["equipped_weapon"] = ""
@@ -247,7 +247,7 @@ def unequip_armor(character):
     """
     # TODO: Implement armor unequipping
     if "equipped_armor" in character:
-        bef_armor = character["equipped_armor"
+        bef_armor = character["equipped_armor"]
         character[stat_val[0]] -= character[stat_val[1]]
         character["inventory"].append(character["equipped_armor"])
         character["equipped_armor"] = ""
