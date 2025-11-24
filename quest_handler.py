@@ -2,7 +2,7 @@
 COMP 163 - Project 3: Quest Chronicles
 Quest Handler Module - Starter Code
 
-Name: [Your Name Here]
+Name: Samuel Somerville
 
 AI Usage: [Document any AI assistance used]
 
@@ -50,7 +50,24 @@ def accept_quest(character, quest_id, quest_data_dict):
     # Check not already completed
     # Check not already active
     # Add to character['active_quests']
-    pass
+
+    if quest_id in quest_data_dict:
+        if quest_data_dict["required_level"] <= character["level"]:
+            if quest_data_dict["prerequiste"] == None:
+                if quest_id not in character["completed_quests"]:
+                    if quest_id not in character["active_quests"]:
+                        character["active_quests"].append(quest_id)
+                        return True
+                    else:
+                        QuestAlreadyCompletedError
+                else:
+                    QuestAlreadyCompletedError
+            else:
+                QuestRequirementsNotMetError
+        else:
+            raise InsufficientLevelError
+    else:
+        raise QuestNotFoundError
 
 def complete_quest(character, quest_id, quest_data_dict):
     """
@@ -77,7 +94,15 @@ def complete_quest(character, quest_id, quest_data_dict):
     # Add to completed_quests
     # Grant rewards (use character_manager.gain_experience and add_gold)
     # Return reward summary
-    pass
+
+    if quest_id in quest_data_dict:
+        if quest_id in character["active_quests"]:
+            character["active_quests"].remove(quest_id)
+            character["completed_quests"].append(quest_id)
+            character_manager.gain_experience(character, quest_data_dict["reward_xp"])
+            character_manager.add_gold(character, quest_data_dict["reward_gold"])
+            return f"({quest_data_dict["reward_xp"]}, quest_data_dict["reward_gold"]}"
+                                              
 
 def abandon_quest(character, quest_id):
     """
