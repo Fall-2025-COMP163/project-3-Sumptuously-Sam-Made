@@ -53,7 +53,7 @@ def accept_quest(character, quest_id, quest_data_dict):
 
     if quest_id in quest_data_dict:
         if quest_data_dict[quest_id]["required_level"] <= character["level"]:
-            if quest_data_dict[quest_id]["prerequiste"] == None:
+            if quest_data_dict[quest_id]["prerequisite"] == None:
                 if quest_id not in character["completed_quests"]:
                     if quest_id not in character["active_quests"]:
                         character["active_quests"].append(quest_id)
@@ -270,7 +270,7 @@ def display_quest_info(quest_data):
     print(f"Description: {quest_data['description']}")
     # ... etc
     print(f"Rewards: {quest_data['reward_xp']}xp & {quest_data['reward_gold']}")
-    print(f"Requirement: {quest_data['prerequiste']} is needed")
+    print(f"Requirement: {quest_data['prerequisite']} is needed")
 
 def display_quest_list(quest_list):
     """
