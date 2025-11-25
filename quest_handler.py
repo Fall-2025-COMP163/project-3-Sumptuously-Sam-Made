@@ -59,11 +59,11 @@ def accept_quest(character, quest_id, quest_data_dict):
                         character["active_quests"].append(quest_id)
                         return True
                     else:
-                        QuestAlreadyCompletedError
+                        raise QuestAlreadyCompletedError
                 else:
-                    QuestAlreadyCompletedError
+                    raise QuestAlreadyCompletedError
             else:
-                QuestRequirementsNotMetError
+                raise QuestRequirementsNotMetError
         else:
             raise InsufficientLevelError
     else:
