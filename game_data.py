@@ -60,7 +60,7 @@ def load_quests(filename="data/quests.txt"):
         raise MissingDataFileError
     except SyntaxError:
         raise InvalidDataFormatError
-    except NotADirectoryError:
+    except IndexError:
         raise CorruptedDataError                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 
 def load_items(filename="data/items.txt"):
