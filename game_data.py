@@ -49,7 +49,7 @@ def load_quests(filename="data/quests.txt"):
                 if line == "":
                     quest_data_dict[key] = data_dict
                 else:
-                    sp_line = line.split(":").strip()
+                    sp_line = line.strip().split(":")
                     if sp_line[0] == "QUEST_ID":
                         key = sp_line[1]
                     else:
