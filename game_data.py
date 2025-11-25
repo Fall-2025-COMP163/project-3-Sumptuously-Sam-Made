@@ -58,9 +58,9 @@ def load_quests(filename="data/quests.txt"):
             
     except FileNotFoundError:
         raise MissingDataFileError
-    except SyntaxError:
-        raise InvalidDataFormatError
     except IndexError:
+        raise InvalidDataFormatError
+    except SyntaxError:
         raise CorruptedDataError                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 
 def load_items(filename="data/items.txt"):
