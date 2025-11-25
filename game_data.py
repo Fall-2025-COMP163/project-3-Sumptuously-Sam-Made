@@ -47,7 +47,7 @@ def load_quests(filename="data/quests.txt"):
             content = file.readlines()
             for line in content:
                 if line == "":
-                    quest_date_dict[key] = data_dict
+                    quest_data_dict[key] = data_dict
                 else:
                     sp_line = line.split(":").strip()
                     if sp_line[0] == "QUEST_ID":
@@ -57,9 +57,9 @@ def load_quests(filename="data/quests.txt"):
         return quest_data_dict
             
     except FileNotFoundError:
-        raise MissingDateFileError
+        raise MissingDataFileError
     except SyntaxError:
-        raise InvalidDateFormatError
+        raise InvalidDataFormatError
     except NotADirectoryError:
         raise CorruptedDataError                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 
