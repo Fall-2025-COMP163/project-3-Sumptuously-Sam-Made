@@ -230,16 +230,16 @@ def use_special_ability(character, enemy):
     # Check character class
     # Execute appropriate ability
     # Track cooldowns (optional advanced feature)
-    if character["character_class"] == "Warrior":
+    if character["class"] == "Warrior":
         warrior_power_strike(character, enemy)
         return "Powerful blow towards enemy"
-    elif character["character_class"] == "Mage":
+    elif character["class"] == "Mage":
         mage_fireball(character, enemy)
         return "Fireball towards enemy"
-    elif character["character_class"] == "Rogue":
+    elif character["class"] == "Rogue":
         rogue_critical_strike(character, enemy)
         return "Critical Hit on enemy"
-    elif character["character_class"] == "Cleric":
+    elif character["class"] == "Cleric":
         cleric_heal(character)
         return "Character got healed"
 
