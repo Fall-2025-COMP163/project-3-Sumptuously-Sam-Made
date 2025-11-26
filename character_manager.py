@@ -118,10 +118,12 @@ def save_character(character, save_directory="data/save_games"):
         comp_quests += quest
     filename = f"{character["name"]}_save.txt"
     try:
-        if not os.path.isdir(save_directory):
-            with open(filename, 'w') as f:
+        full_path = os.path.join(save_directory, filename)
+        if not os.path.exists(save_directory):
+            os.makedirs(save_directory)
+            with open(full_path, 'w') as f:
                 f.write(f"NAME: {character["name"]}\nCLASS: {character["class"]}\nLEVEL: {character["level"]}\nHEALTH: {character["health"]}\nMAX_HEALTH: {character["max_health"]}\nSTRENGTH: {character["strength"]}\nMAGIC: {character["magic"]}\nEXPERIENCE: {character["experience"]}\nGOLD: {character["gold"]}\nINVENTORY: {items}\nACTIVE_QUESTS: {act_quests}\nCOMPLETED_QUESTS: {comp_quests}")
-            return True
+                return True
     except PermissionError:
         raise PermissionError
     except IOError:
