@@ -157,11 +157,11 @@ def load_character(character_name, save_directory="data/save_games"):
             read = file.readlines()
             for line in read:
                 if "," in line:
-                    sp_line = line.strip().split(":")
+                    sp_line = line.strip().lower().split(":")
                     sp_line[1] = sp_line[1].split(",")
                     char_dict[sp_line[0]] = sp_line[1]
                 else:
-                    sp_line = line.strip().split(":")
+                    sp_line = line.strip().lower().split(":")
                     char_dict[sp_line[0]] = sp_line[1]
             return char_dict                
                     
