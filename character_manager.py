@@ -150,8 +150,9 @@ def load_character(character_name, save_directory="data/save_games"):
     # Parse comma-separated lists back into Python lists
     
     filename = f"{character_name}_save.txt"
+    full_path = os.path.join(save_directory, filename)
     try:
-        with open(save_directory, "r") as file:
+        with open(full_path, "r") as file:
             read = file.readlines()
             for line in read:
                 if "," in line:
