@@ -107,11 +107,20 @@ def save_character(character, save_directory="data/save_games"):
     # Create save_directory if it doesn't exist
     # Handle any file I/O errors appropriately
     # Lists should be saved as comma-separated values
+    items = ""
+    act_quests = ""
+    comp_quests = ""
+    for item in character["inventory"]:
+        items += item
+    for quest in character["active_quests"]:
+        act_quests += quest
+    for quest in character["completed_quests"]:
+        comp_quests += quest
     filename = f"{character["name"]}_save.txt"
     try:
         if not os.path.isdir(save_directory):
             with open(filename, 'w') as f:
-                f.write(character)
+                f.write(f"NAME: {character["name"]}\nCLASS: {character["class"]}\nLEVEL: {character["level"]}\nHEALTH: {character["health"]}\nMAX_HEALTH: {character["max_health"]}\nSTRENGTH: {character["strength"]}\nMAGIC: {character["magic"]}\nEXPERIENCE: {character["experience"]}\nGOLD: {character["gold"]}\nINVENTORY: {items}\nACTIVE_QUESTS: {act_quests}\nCOMPLETED_QUESTS: {comp_quests}")
             return True
     except PermissionError:
         raise PermissionError
