@@ -110,8 +110,8 @@ def save_character(character, save_directory="data/save_games"):
     filename = f"{character["name"]}_save.txt"
     try:
         if not os.path.isdir(save_directory):
-            with open(save_directory, 'w') as f:
-                f.write(filename)
+            with open(filename, 'w') as f:
+                f.write(character)
             return True
     except PermissionError:
         raise PermissionError
@@ -141,9 +141,15 @@ def load_character(character_name, save_directory="data/save_games"):
     filename = f"{character_name}_save.txt"
     try:
         with open(save_directory, "r") as file:
-            read = file.read()
-            if filename in read:
-                return filename
+            read = file.readlines()
+            for line in read:
+                if "," in line:
+                    sp_line = line.strip().split(":")
+                    sp_line[0] = sp_line[1].split(",")
+                else:
+                    sp_line = line.strip().split(":")
+                        
+                    
     except FileNotFoundError:
         raise CharacterNotFoundError
     except SyntaxError:
