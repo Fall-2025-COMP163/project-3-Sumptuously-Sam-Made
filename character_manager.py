@@ -151,16 +151,19 @@ def load_character(character_name, save_directory="data/save_games"):
     
     filename = f"{character_name}_save.txt"
     full_path = os.path.join(save_directory, filename)
+    char_dict = {}
     try:
         with open(full_path, "r") as file:
             read = file.readlines()
             for line in read:
                 if "," in line:
                     sp_line = line.strip().split(":")
-                    sp_line[0] = sp_line[1].split(",")
+                    sp_line[1] = sp_line[1].split(",")
+                    char_dict[sp_line[0]] = sp_line[1]
                 else:
                     sp_line = line.strip().split(":")
-                        
+                    char_dict[sp_line[0]] = sp_line[1]
+            return char_dict                
                     
     except FileNotFoundError:
         raise CharacterNotFoundError
