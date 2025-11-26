@@ -134,6 +134,8 @@ class SimpleBattle:
                 use_special_ability(self.character, self.enemy)
             elif choice == "3":
                 attempt_escape()
+        else:
+            raise CombatNotActiveError
     
     def enemy_turn(self):
         """
