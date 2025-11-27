@@ -144,7 +144,7 @@ def use_item(character, item_id, item_data):
     if item_id in character["inventory"]:
         if item_data["type"] == "consumable":
             stat_value = item_data["effect"].split(":")
-            character[stat_value[0]] += stat_value[1]
+            character[stat_value[0]] += int(stat_value[1])
             character["inventory"].remove(item_id)
             return f"{character[stat_value[1]]} was added to {character[stat_value[0]]} because of a consumable"
         else:
