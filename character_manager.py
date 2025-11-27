@@ -122,7 +122,7 @@ def save_character(character, save_directory="data/save_games"):
         if not os.path.exists(save_directory):
             os.makedirs(save_directory)
             with open(full_path, 'w') as f:
-                f.write(f"NAME:{character["name"]}\nCLASS: {character["class"]}\nLEVEL: {character["level"]}\nHEALTH: {character["health"]}\nMAX_HEALTH: {character["max_health"]}\nSTRENGTH: {character["strength"]}\nMAGIC: {character["magic"]}\nEXPERIENCE: {character["experience"]}\nGOLD: {character["gold"]}\nINVENTORY: {items}\nACTIVE_QUESTS: {act_quests}\nCOMPLETED_QUESTS: {comp_quests}")
+                f.write(f"NAME:{character["name"]}\nCLASS:{character["class"]}\nLEVEL:{character["level"]}\nHEALTH:{character["health"]}\nMAX_HEALTH:{character["max_health"]}\nSTRENGTH:{character["strength"]}\nMAGIC:{character["magic"]}\nEXPERIENCE: {character["experience"]}\nGOLD:{character["gold"]}\nINVENTORY:{items}\nACTIVE_QUESTS:{act_quests}\nCOMPLETED_QUESTS:{comp_quests}")
                 return True
     except PermissionError:
         raise PermissionError
