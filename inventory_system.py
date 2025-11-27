@@ -307,8 +307,6 @@ def purchase_item(character, item_id, item_data):
             return True
         else:
             raise InventoryFullError
-    else:
-        raise InsufficientResourcesError
 
 def sell_item(character, item_id, item_data):
     """
