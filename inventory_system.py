@@ -184,7 +184,7 @@ def equip_weapon(character, item_id, item_data):
             if "equipped_weapon" in character:
                 unequip_weapon(character)
             else:
-                stat_val = item_data["effect"].split(":")
+                stat_value = item_data["effect"].split(":")
                 character["equipped_weapon"] = item_id
                 character["inventory"].remove(item_id)
                 f"{stat_value[1]} was added to {stat_value[0]} because of a weapon"
@@ -221,7 +221,7 @@ def equip_armor(character, item_id, item_data):
             if "equipped_armor" in character:
                 unequip_armor(character)
             else:
-                stat_val = item_data["effect"].split(":")
+                stat_value = item_data["effect"].split(":")
                 character["equipped_weapon"] = item_id
                 character["inventory"].remove(item_id)
                 f"{stat_value[1]} was added to {stat_value[0]} because of an armor piece"
