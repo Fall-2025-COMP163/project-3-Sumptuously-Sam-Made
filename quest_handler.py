@@ -9,6 +9,8 @@ AI Usage: [Document any AI assistance used]
 This module handles quest management, dependencies, and completion.
 """
 
+import character_manager
+
 from custom_exceptions import (
     QuestNotFoundError,
     QuestRequirementsNotMetError,
