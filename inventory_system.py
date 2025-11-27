@@ -146,7 +146,7 @@ def use_item(character, item_id, item_data):
             stat_value = item_data["effect"].split(":")
             character[stat_value[0]] += int(stat_value[1])
             character["inventory"].remove(item_id)
-            return f"{stat_value[1]} was added to {character[stat_value[0]]} because of a consumable"
+            return f"{stat_value[1]} was added to {stat_value[0]} because of a consumable"
         else:
             raise InvalidItemTypeError
     else:
@@ -187,7 +187,7 @@ def equip_weapon(character, item_id, item_data):
                 stat_val = item_data["effect"].split(":")
                 character["equipped_weapon"] = item_id
                 character["inventory"].remove(item_id)
-                f"{character[stat_value[1]]} was added to {character[stat_value[0]]} because of a weapon"
+                f"{stat_value[1]} was added to {stat_value[0]} because of a weapon"
         else:
             raise InvalidItemTypeError
     else:
@@ -224,7 +224,7 @@ def equip_armor(character, item_id, item_data):
                 stat_val = item_data["effect"].split(":")
                 character["equipped_weapon"] = item_id
                 character["inventory"].remove(item_id)
-                f"{character[stat_value[1]]} was added to {character[stat_value[0]]} because of an armor piece"
+                f"{stat_value[1]} was added to {stat_value[0]} because of an armor piece"
         else:
             raise InvalidItemTypeError
     else:
