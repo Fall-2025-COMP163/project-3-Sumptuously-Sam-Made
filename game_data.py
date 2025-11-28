@@ -5,6 +5,7 @@ Game Data Module - Starter Code
 Name: [Your Name Here]
 
 AI Usage: [Document any AI assistance used]
+Used AI to explain isinstance()
 
 This module handles loading and validating game data from text files.
 """
@@ -127,7 +128,7 @@ def validate_quest_data(quest_dict):
             raise InvalidDataFormatError
             return None   
         elif required == "reward_xp" or required == "reward_gold" or required == "required_level":
-            if not quest_dict[required].isnumeric():
+            if not isinstance(quest_dict[required], (int, float)):
                 raise InvalidDataFormatError
                 return None
     return True
