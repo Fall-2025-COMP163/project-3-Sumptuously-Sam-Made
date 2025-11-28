@@ -43,6 +43,7 @@ def load_quests(filename="data/quests.txt"):
     # - Corrupted/unreadable data → raise CorruptedDataError
     try:
         data_dict = {}
+        quest_data_dict ={}
         with open(filename, "r") as file:
             content = file.readlines()
             for line in content:
