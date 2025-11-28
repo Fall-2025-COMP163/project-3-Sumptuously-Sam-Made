@@ -146,7 +146,7 @@ def validate_item_data(item_dict):
     # TODO: Implement validation
     fields = ["item_id", "name", "type", "effect", "cost", "description"]
     for required in fields:
-        if required not in item_dict or (required == "type" and not (item_dict[required] == weapon or item_dict[required] == armor, item_dict[required] == consumable)):
+        if required not in item_dict or (required == "type" and not (item_dict[required] == "weapon" or item_dict[required] == "armor" or item_dict[required] == "consumable")):
             raise InvalidDataFormatError
             return None
     return True
