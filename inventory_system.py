@@ -327,7 +327,7 @@ def sell_item(character, item_id, item_data):
     # Calculate sell price (cost // 2)
     # Remove item from inventory
     # Add gold to character
-    if character["gold"] >= item_data[item_id]["cost"]:
+    if character["gold"] >= item_data["cost"]:
         sell_price = character["cost"] // 2
         character["inventory"].remove(item_id)
         character["gold"] += sell_price
