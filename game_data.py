@@ -50,6 +50,10 @@ def load_quests(filename="data/quests.txt"):
             for line in content:
                 if line == "\n":
                     quest_data_dict[key] = data_dict
+                elif line == "PREREQUISITE: dragon_slayer":
+                    sp_line = line.strip().split(":")
+                    data_dict[sp_line[0].lower()] = sp_line[1]
+                    quest_data_dict[key] = data_dict
                 else:
                     sp_line = line.strip().split(":")
                     if sp_line[0] == "QUEST_ID":
