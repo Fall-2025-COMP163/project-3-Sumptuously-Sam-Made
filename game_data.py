@@ -160,7 +160,18 @@ def create_default_data_files():
     # Create data/ directory if it doesn't exist
     # Create default quests.txt and items.txt files
     # Handle any file permission errors appropriately
-    pass
+    quests = "data/quests.txt" 
+    items = "data/items.txt"
+    try:
+        with open(quests, "r") as file:
+            contents = file.readlines
+        with open(items, "r") as file:
+            contents = file.readlines
+    except:
+        with open(quests, "w") as file:
+            contents = file.readlines
+        with open(items, "w") as file:
+            contents = file.readlines
 
 # ============================================================================
 # HELPER FUNCTIONS
