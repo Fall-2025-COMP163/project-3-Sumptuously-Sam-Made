@@ -123,9 +123,13 @@ def validate_quest_data(quest_dict):
     
     fields = ["quest_id", "title", "description", "reward_xp", "reward_gold", "required_level", "prerequisite"]
     for required in fields:
-        if required not in quest_dict or not required.isnumeric():
+        if required not in quest_dict:
             raise InvalidDataFormatError
-            return None
+            return None   
+        elif required == "reward_xp" or required == "reward_gold" or required == "required_level":
+            if not is quest_dict[required].isnumeric():
+                raise InvalidDataFormatError
+                return None
     return True
 
 def validate_item_data(item_dict):
