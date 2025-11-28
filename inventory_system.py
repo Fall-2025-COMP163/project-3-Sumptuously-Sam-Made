@@ -300,7 +300,8 @@ def purchase_item(character, item_id, item_data):
     # Check if inventory has space
     # Subtract gold from character
     # Add item to inventory
-    if True:
+    
+    if character["gold"] > item_data["cost"]:
         if len(character["inventory"]) < MAX_INVENTORY_SIZE:
             character["gold"] -= item_data["cost"]
             character["inventory"].append(item_id)
@@ -327,7 +328,8 @@ def sell_item(character, item_id, item_data):
     # Calculate sell price (cost // 2)
     # Remove item from inventory
     # Add gold to character
-    if True:
+    
+    if len(character["inventory"]) < MAX_INVENTORY_SIZE:
         sell_price = item_data["cost"] // 2
         character["inventory"].remove(item_id)
         character["gold"] += sell_price
