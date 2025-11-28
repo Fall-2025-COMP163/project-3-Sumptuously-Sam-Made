@@ -296,7 +296,7 @@ def get_victory_rewards(enemy):
     Returns: Dictionary with 'xp' and 'gold'
     """
     # TODO: Implement reward calculation
-    return {xp:enemy["xp_reward"], gold:enemy["gold_reward"]}
+    return {"xp":enemy["xp_reward"], "gold":enemy["gold_reward"]}
 
 def display_combat_stats(character, enemy):
     """
