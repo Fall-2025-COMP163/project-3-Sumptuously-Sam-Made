@@ -162,7 +162,14 @@ def get_available_quests(character, quest_data_dict):
     # TODO: Implement available quest search
     # Filter all quests by requirements
 
-    pass
+    ava_quests = []
+    for quest in quest_data_dict:
+        if quest_data_dict[quest]["required_level"] <= character["level"]:
+            if quest_data_dict[quest]["prerequisite"].upper() == "NONE" or quest_data_dict[quest]["prerequisite"] in character["completed_quests"]:
+                if quest not in character["completed_quests"]:
+                    if quest not in character["active_quests"]:
+                        ava_quests.append(quest)
+    return ava_quests
 
 # ============================================================================
 # QUEST TRACKING
@@ -202,7 +209,7 @@ def can_accept_quest(character, quest_id, quest_data_dict):
     """
     # TODO: Implement requirement checking
     # Check all requirements without raising exceptions
-    pass
+    
 
 def get_quest_prerequisite_chain(quest_id, quest_data_dict):
     """
@@ -217,7 +224,12 @@ def get_quest_prerequisite_chain(quest_id, quest_data_dict):
     # TODO: Implement prerequisite chain tracing
     # Follow prerequisite links backwards
     # Build list in reverse order
-    pass
+
+    quest_prerequisites = []
+    while not quest_data_dict[quest_id]["prerequisite"] == "none":
+        quest_prerequisites.append(quest_id)
+        quest_id = quest_data_dict[quest_id]["prerequisite"]
+    return quest_prerequisites.reverse()
 
 # ============================================================================
 # QUEST STATISTICS
