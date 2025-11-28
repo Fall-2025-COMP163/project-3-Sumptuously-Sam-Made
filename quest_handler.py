@@ -52,20 +52,24 @@ def accept_quest(character, quest_id, quest_data_dict):
     # Check not already completed
     # Check not already active
     # Add to character['active_quests']
-    if quest_data_dict[quest_id]["required_level"] <= character["level"]:
-        if quest_data_dict[quest_id]["prerequisite"].upper() == "NONE" or quest_data_dict[quest_id]["prerequisite"] in character["completed_quests"]:
-            if quest_id not in character["completed_quests"]:
-                if quest_id not in character["active_quests"]:
-                    character["active_quests"].append(quest_id)
-                    return True
+
+    if quest_id in quest_data_dict:
+        if quest_data_dict[quest_id]["required_level"] <= character["level"]:
+            if quest_data_dict[quest_id]["prerequisite"].upper() == "NONE" or quest_data_dict[quest_id]["prerequisite"] in character["completed_quests"]:
+                if quest_id not in character["completed_quests"]:
+                    if quest_id not in character["active_quests"]:
+                        character["active_quests"].append(quest_id)
+                        return True
+                    else:
+                        raise QuestNotFoundError
                 else:
-                    raise QuestNotFoundError
+                    raise QuestAlreadyCompletedError
             else:
-                raise QuestAlreadyCompletedError
+                raise QuestRequirementsNotMetError
         else:
-            raise QuestRequirementsNotMetError
+            raise InsufficientLevelError
     else:
-        raise InsufficientLevelError
+        raise QuestNotFoundError
 
 def complete_quest(character, quest_id, quest_data_dict):
     """
