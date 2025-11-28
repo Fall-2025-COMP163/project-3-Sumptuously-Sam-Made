@@ -127,7 +127,7 @@ def validate_quest_data(quest_dict):
             raise InvalidDataFormatError
             return None   
         elif required == "reward_xp" or required == "reward_gold" or required == "required_level":
-            if is not quest_dict[required].isnumeric():
+            if not quest_dict[required].isnumeric():
                 raise InvalidDataFormatError
                 return None
     return True
