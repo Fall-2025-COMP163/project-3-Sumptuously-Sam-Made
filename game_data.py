@@ -53,6 +53,7 @@ def load_quests(filename="data/quests.txt"):
                     sp_line = line.strip().split(":")
                     if sp_line[0] == "QUEST_ID":
                         key = sp_line[1]
+                        data_dict[sp_line[0].lower()] = sp_line[1]
                     else:
                         data_dict[sp_line[0].lower()] = sp_line[1]
             return quest_data_dict
@@ -94,6 +95,7 @@ def load_items(filename="data/items.txt"):
                     sp_line = line.strip().split(":")
                     if sp_line[0] == "ITEM_ID":
                         key = sp_line[1]
+                        data_dict[sp_line[0].lower()] = sp_line[1]
                     else:
                         data_dict[sp_line[0].lower()] = sp_line[1]
             return item_data_dict
