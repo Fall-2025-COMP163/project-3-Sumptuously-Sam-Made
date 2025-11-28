@@ -96,7 +96,7 @@ def load_items(filename="data/items.txt"):
                         key = sp_line[1]
                     else:
                         data_dict[sp_line[0].lower()] = sp_line[1]
-        return item_data_dict
+            return item_data_dict
             
     except FileNotFoundError:
         raise MissingDateFileError
