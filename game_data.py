@@ -84,7 +84,7 @@ def load_items(filename="data/items.txt"):
     
     try:
         data_dict = {}
-        item_date_dict = {}
+        item_data_dict = {}
         with open(filename, "r") as file:
             content = file.readlines()
             for line in content:
