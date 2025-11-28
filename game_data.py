@@ -53,7 +53,7 @@ def load_quests(filename="data/quests.txt"):
                     if sp_line[0] == "QUEST_ID":
                         key = sp_line[1]
                     else:
-                        data_dict[sp_line[0].lower()] = sp_line[1]
+                        data_dict[sp_line[0].lower()] = sp_line[0]
             return quest_data_dict
             
     except FileNotFoundError:
