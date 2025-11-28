@@ -89,7 +89,7 @@ def load_items(filename="data/items.txt"):
             content = file.readlines()
             for line in content:
                 if line == "\n":
-                    item_date_dict[key] = data_dict
+                    item_data_dict[key] = data_dict
                 else:
                     sp_line = line.strip().split(":")
                     if sp_line[0] == "ITEM_ID":
