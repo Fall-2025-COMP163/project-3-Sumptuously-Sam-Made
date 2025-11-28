@@ -323,7 +323,12 @@ def display_character_quest_progress(character, quest_data_dict):
     - Total rewards earned
     """
     # TODO: Implement progress display
-    character["completed_quests"] 
+
+    print(len(character["active_quests"]))
+    print(len(character["completed_quests"]))
+    print(len(quest_data_dict)/len(character["completed_quests"]))
+    for quest in character["completed_quests"]:
+        print(f"Rewards: {quest_data_dict[quest][xp_reward]}xp & {quest_data_dict[quest][gold_reward]}gold")
 
 # ============================================================================
 # VALIDATION
@@ -341,7 +346,11 @@ def validate_quest_prerequisites(quest_data_dict):
     # TODO: Implement prerequisite validation
     # Check each quest's prerequisite
     # Ensure prerequisite exists in quest_data_dict
-    pass
+    
+    for item in quest_data_dict["prerequisite"]:
+        if not item == quest_data_dict["quest_id"] and item != "none":
+            raise QuestNotFoundError
+    return True
 
 
 # ============================================================================
