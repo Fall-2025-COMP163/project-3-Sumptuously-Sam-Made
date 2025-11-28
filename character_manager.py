@@ -221,6 +221,7 @@ def gain_experience(character, xp_amount):
     # Check for level up (can level up multiple times)
     # Update stats on level up
     if not is_character_dead(character):
+        character["experience"] += xp_amount
         levels = (character["level"] * 100) // xp_amount
         for i in range(levels):
             character["level"] += 1
