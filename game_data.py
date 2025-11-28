@@ -54,7 +54,7 @@ def load_quests(filename="data/quests.txt"):
                         key = sp_line[1]
                     else:
                         data_dict[sp_line[0].lower()] = sp_line[1]
-        return quest_data_dict
+            return quest_data_dict
             
     except FileNotFoundError:
         raise MissingDataFileError
