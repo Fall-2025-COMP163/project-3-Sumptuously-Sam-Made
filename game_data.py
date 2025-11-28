@@ -121,7 +121,7 @@ def validate_quest_data(quest_dict):
     # Check that all required keys exist
     # Check that numeric values are actually numbers
     
-    fields = [quest_id, title, description, reward_xp, reward_gold, required_level, prerequisite]
+    fields = ["quest_id", "title", "description", "reward_xp", "reward_gold", "required_level", "prerequisite"]
     for required in fields:
         if required not in quest_dict or not required.isnumeric():
             raise InvalidDataFormatError
