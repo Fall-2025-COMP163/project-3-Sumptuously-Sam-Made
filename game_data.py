@@ -144,7 +144,7 @@ def validate_item_data(item_dict):
     Raises: InvalidDataFormatError if missing required fields or invalid type
     """
     # TODO: Implement validation
-    fields = item_id, name, type, effect, cost, description
+    fields = ["item_id", "name", "type", "effect", "cost", "description"]
     for required in fields:
         if required not in item_dict or (required == "type" and not (item_dict[required] == weapon or item_dict[required] == armor, item_dict[required] == consumable)):
             raise InvalidDataFormatError
