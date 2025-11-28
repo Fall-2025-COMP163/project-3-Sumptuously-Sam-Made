@@ -279,7 +279,7 @@ def get_quests_by_level(quest_data_dict, min_level, max_level):
     
     leveled_quests = []
     for i in range(min_level, max_level):
-        for item in quest_data_dict
+        for item in quest_data_dict:
             if i == quest_data_dict[required_level]:
                 leveled_quest.append(quest_data_dict[item])
 
