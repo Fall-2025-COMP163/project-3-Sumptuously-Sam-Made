@@ -48,11 +48,7 @@ def load_quests(filename="data/quests.txt"):
         with open(filename, "r") as file:
             content = file.readlines()
             for line in content:
-                if line == "\n":
-                    quest_data_dict[key] = data_dict
-                elif line == "PREREQUISITE: dragon_slayer":
-                    sp_line = line.strip().split(":")
-                    data_dict[sp_line[0].lower()] = sp_line[1]
+                if line == "\n" or line == "":
                     quest_data_dict[key] = data_dict
                 else:
                     sp_line = line.strip().split(":")
