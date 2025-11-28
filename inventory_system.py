@@ -301,7 +301,7 @@ def purchase_item(character, item_id, item_data):
     # Subtract gold from character
     # Add item to inventory
     
-    if (character["gold"] - item_data["cost"]) > 0:
+    if (character["gold"] + item_data["cost"]) > 0:
         if len(character["inventory"]) < MAX_INVENTORY_SIZE:
             character["gold"] -= item_data["cost"]
             character["inventory"].append(item_id)
