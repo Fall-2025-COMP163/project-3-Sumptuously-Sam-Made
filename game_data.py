@@ -46,14 +46,14 @@ def load_quests(filename="data/quests.txt"):
         with open(filename, "r") as file:
             content = file.readlines()
             for line in content:
-                if line == "":
+                if line == "\n":
                     quest_data_dict[key] = data_dict
                 else:
                     sp_line = line.strip().split(":")
                     if sp_line[0] == "QUEST_ID":
                         key = sp_line[1]
                     else:
-                        data_dict[sp_line[0].lower()] = sp_line[0]
+                        data_dict[sp_line[0].lower()] = sp_line[1]
             return quest_data_dict
             
     except FileNotFoundError:
