@@ -63,14 +63,6 @@ def accept_quest(character, quest_id, quest_data_dict):
                     if quest_sp not in character["active_quests"]:
                         character["active_quests"].append(quest_sp)
                         return True
-                    else:
-                        raise QuestNotFoundError
-                else:
-                    raise QuestAlreadyCompletedError
-            else:
-                raise QuestRequirementsNotMetError
-        else:
-            raise InsufficientLevelError
         
     else:
         if quest_id in quest_data_dict:
