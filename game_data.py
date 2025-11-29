@@ -95,7 +95,7 @@ def load_items(filename="data/items.txt"):
                 else:
                     sp_line = line.strip().split(":")
                     if sp_line[0] == "ITEM_ID":
-                        key = sp_line[1]
+                        key = sp_line[1].strip()
                         data_dict[sp_line[0].lower()] = sp_line[1]
                     elif sp_line[0] == "EFFECT":
                         data_dict[sp_line[0].lower()] = f"{sp_line[1]}:{sp_line[2]}"
