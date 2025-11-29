@@ -74,8 +74,6 @@ def accept_quest(character, quest_id, quest_data_dict):
                 raise QuestRequirementsNotMetError
         else:
             raise InsufficientLevelError
-    else:
-        raise QuestNotFoundError
         
     else:
         if int(quest_data_dict[quest_id]["required_level"]) < (character["level"]):
@@ -92,8 +90,6 @@ def accept_quest(character, quest_id, quest_data_dict):
                 raise QuestRequirementsNotMetError
         else:
             raise InsufficientLevelError
-    else:
-        raise QuestNotFoundError
 
 def complete_quest(character, quest_id, quest_data_dict):
     """
