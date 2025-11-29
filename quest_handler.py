@@ -118,7 +118,7 @@ def complete_quest(character, quest_id, quest_data_dict):
     # Return reward summary
 
     quest_sp = " " + quest_id
-    if quest_sd in quest_data_dict:
+    if quest_sp in quest_data_dict:
         if quest_sd in character["active_quests"]:
             character["active_quests"].remove(quest_id)
             character["completed_quests"].append(quest_id)
