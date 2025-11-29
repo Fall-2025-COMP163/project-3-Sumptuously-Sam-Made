@@ -221,7 +221,7 @@ def gain_experience(character, xp_amount):
     # Check for level up (can level up multiple times)
     # Update stats on level up
     if not is_character_dead(character):
-        int(character["experience"]) += int(xp_amount)
+        character["experience"] += int(xp_amount)
         levels = (character["level"] * 100) // int(xp_amount)
         for i in range(levels):
             character["level"] += 1
@@ -249,7 +249,7 @@ def add_gold(character, amount):
     # Check that result won't be negative
     # Update character's gold
     if character["gold"] + amount > 0:
-        int(character["gold"]) += int(amount)
+        character["gold"] += int(amount)
     else:
         raise ValueError
 
