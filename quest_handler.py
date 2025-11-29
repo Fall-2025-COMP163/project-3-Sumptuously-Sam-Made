@@ -53,10 +53,7 @@ def accept_quest(character, quest_id, quest_data_dict):
     # Check not already active
     # Add to character['active_quests']
 
-    org_quest_id = quest_data_dict
-    for item in quest_data_dict:
-        for quest in item:
-            item[quest] = item[quest].strip()
+    
 
     quest_sp = " " + quest_id
     if quest_sp in quest_data_dict:
