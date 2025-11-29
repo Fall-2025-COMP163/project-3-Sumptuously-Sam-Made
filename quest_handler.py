@@ -58,7 +58,7 @@ def accept_quest(character, quest_id, quest_data_dict):
     quest_sp = " " + quest_id
     if quest_sp in quest_data_dict:
         if True:
-            if quest_data_dict[quest_sp]["prerequisite"].upper() == "NONE" or quest_data_dict[quest_sp]["prerequisite"] in character["completed_quests"]:
+            if quest_data_dict[quest_sp]["prerequisite"].upper().strip() == "NONE" or quest_data_dict[quest_sp]["prerequisite"].strip() in character["completed_quests"]:
                 if quest_sp not in character["completed_quests"]:
                     if quest_sp not in character["active_quests"]:
                         character["active_quests"].append(quest_sp)
