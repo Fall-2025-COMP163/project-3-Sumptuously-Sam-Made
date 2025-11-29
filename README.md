@@ -142,11 +142,11 @@ Document your project with:
 
 4. **AI Usage:** Detail what AI assistance you used  
     I used Google Gemini AI to:
-    AI helped me understand isinstance()
-    AI helped me figure out how to access values from keys
-    AI reminded me of how to join using os.path.join()
-    AI re-explained nestd dictionaries for me
-    AI explained isinstance()
+    AI helped me understand isinstance()  
+    AI helped me figure out how to access values from keys  
+    AI reminded me of how to join using os.path.join()  
+    AI re-explained nestd dictionaries for me  
+    AI explained isinstance()  
 
 5. **How to Play:** Instructions for running the game  
     To play the game you have to create a character and load items and quests so that you can start completing quest and gaining rewards to advance you throughout the adventure. Once your strong enough you can beat strong enemies and earn more xp for leveling up and gold for purchasing items.
