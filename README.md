@@ -132,10 +132,25 @@ This project encourages creativity! Here's what you can customize:
 Document your project with:
 
 1. **Module Architecture:** Explain your module organization
+    Each module builds from one another to create one complete program. The central point of the code is the main.py which launches the game by loading saves and controlling executive functions. The other files serve purposes based on their names. character_manager.py(creates a character that can be saved, loaded, or delted with stats and other functions like gain_experience and heal_character), inventory_system.py(inventory that can be greatly analyzed along with functions that allow you to un/equip weapons and armor and purchase/sell items), quest_handler.py(can get information on quests and accept/complete quests), combat_system.py(simulates a battle between the character and the enemy using special abilities while giving info on rewards and battle logs), game_data.py(loads and valiadates quests and items), custom_exceptions.py(defines the custom exceptions used throughout the program). data/(holds the .txt files used for data). tests/(tests the files), README(explains what the code is doing and what is required).
+
 2. **Exception Strategy:** Describe when/why you raise specific exceptions
+    I raised expections throughout the program to counteract situations where the program would fail, so that it could continue while documenting the incident.
+
 3. **Design Choices:** Justify major decisions
+    I choose to make the characters balanced so the player can have resonable choices and so that they can defeat enemies. Also, I added a extra 2 enemies ("Wolverine"/"Vampire") to make my game more creative and add elements outside of the requirements
+
 4. **AI Usage:** Detail what AI assistance you used
+    I used Google Gemini AI to:
+    AI helped me understand isinstance()
+    AI helped me figure out how to access values from keys
+    AI reminded me of how to join using os.path.join()
+    AI re-explained nestd dictionaries for me
+    AI explained isinstance()
+
 5. **How to Play:** Instructions for running the game
+    To play the game you have to create a character and load items and quests so that you can start completing quest and gaining rewards to advance you throughout the adventure. Once your strong enough you can beat strong enemies and earn more xp for leveling up and gold for purchasing items.
+
 
 ### What to Submit:
 
