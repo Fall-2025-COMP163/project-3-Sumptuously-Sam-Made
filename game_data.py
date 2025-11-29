@@ -90,13 +90,15 @@ def load_items(filename="data/items.txt"):
         with open(filename, "r") as file:
             content = file.readlines()
             for line in content:
-                if line == "\n":
+                if line == "\n" or line == "":
                     item_data_dict[key] = data_dict
                 else:
                     sp_line = line.strip().split(":")
                     if sp_line[0] == "ITEM_ID":
                         key = sp_line[1]
                         data_dict[sp_line[0].lower()] = sp_line[1]
+                    elif sp_line[0] == "EFFECT":
+                        data_dict[sp_line[0].lower()] = f"{sp_line[1]}:{sp_line[2]}"
                     else:
                         data_dict[sp_line[0].lower()] = sp_line[1]
             return item_data_dict
