@@ -7,6 +7,7 @@ Name: Samuel Somerville
 AI Usage: [Document any AI assistance used]
 AI helped me understand isinstance()
 AI helped me figure out how to access values from keys
+AI reminded me of how to join using os.path.join()
 
 This module handles character creation, loading, and saving.
 """
