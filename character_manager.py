@@ -248,7 +248,7 @@ def add_gold(character, amount):
     # TODO: Implement gold management
     # Check that result won't be negative
     # Update character's gold
-    if character["gold"] + amount > 0:
+    if character["gold"] + int(amount) > 0:
         character["gold"] += int(amount)
     else:
         raise ValueError
