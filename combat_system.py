@@ -42,6 +42,10 @@ def create_enemy(enemy_type):
         enemy_dict = {"name":"Orc", "health":80, "strength":12, "magic":5, "xp_reward":50, "gold_reward":25}
     elif enemy_type == "dragon":
         enemy_dict = {"name":"Dragon", "health":200, "strength":25, "magic":15, "xp_reward":200, "gold_reward":100}
+    elif enemy_type == "wolverine":
+        enemy_dict = {"name":"Wolverine", "health":150, "strength":16, "magic":15, "xp_reward":120, "gold_reward":80}
+    elif enemy_type == "vampire":
+        enemy_dict = enemy_dict = {"name":"Vampire", "health":280, "strength":20, "magic":20, "xp_reward":280, "gold_reward":300}
     else:
         raise InvalidTargetError
     return enemy_dict
@@ -53,7 +57,8 @@ def get_random_enemy_for_level(character_level):
     Level 1-2: Goblins
     Level 3-5: Orcs
     Level 6+: Dragons
-    
+    Level 7+: Wolverines
+    Level 10+: Vampires
     Returns: Enemy dictionary
     """
     # TODO: Implement level-appropriate enemy selection
@@ -64,8 +69,12 @@ def get_random_enemy_for_level(character_level):
         return create_enemy("goblin")
     elif 3 <= character["level"] <= 5:
         return create_enemy("orc")
-    else:
+    elif character["level"] >= 6:
         return create_enemy("dragon")
+    elif character["level"] >= 7:
+        return create_enemy("wolverine")
+    elif character["level"] >= 10:
+        return create_enemy("vampire")
 
 # ============================================================================
 # COMBAT SYSTEM
@@ -149,8 +158,13 @@ class SimpleBattle:
         # Check combat is active
         # Calculate damage
         # Apply to character
-        damage = calculate_damage(self.enemy, self.character)
-        apply_damage(damage, self.character)
+        if self.enemy == "vampire":
+            damage = calculate_damage(self.enemy, self.character)
+            apply_damage(damage, self.character)
+            enemy += 8.5
+        else:
+            damage = calculate_damage(self.enemy, self.character)
+            apply_damage(damage, self.character)
     
     def calculate_damage(self, attacker, defender):
         """
