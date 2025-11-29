@@ -118,18 +118,6 @@ def complete_quest(character, quest_id, quest_data_dict):
     # Return reward summary
 
     quest_sp = " " + quest_id
-    if quest_id in quest_data_dict:
-        if quest_id in character["active_quests"]:
-            character["active_quests"].remove(quest_id)
-            character["completed_quests"].append(quest_id)
-            character_manager.gain_experience(character, quest_data_dict[quest_id]["reward_xp"])
-            character_manager.add_gold(character, quest_data_dict[quest_id]["reward_gold"])
-            return f"{quest_data_dict[quest_id]["reward_gold"]}, {quest_data_dict[quest_id]["reward_xp"]}"
-        else:
-            raise QuestNotActiveError
-    else:
-        raise QuestNotFoundError
-        
     if quest_sd in quest_data_dict:
         if quest_sd in character["active_quests"]:
             character["active_quests"].remove(quest_id)
@@ -140,7 +128,17 @@ def complete_quest(character, quest_id, quest_data_dict):
         else:
             raise QuestNotActiveError
     else:
-        raise QuestNotFoundError
+        if quest_id in quest_data_dict:
+            if quest_id in character["active_quests"]:
+                character["active_quests"].remove(quest_id)
+                character["completed_quests"].append(quest_id)
+                character_manager.gain_experience(character, quest_data_dict[quest_id]["reward_xp"])
+                character_manager.add_gold(character, quest_data_dict[quest_id]["reward_gold"])
+                return f"{quest_data_dict[quest_id]["reward_gold"]}, {quest_data_dict[quest_id]["reward_xp"]}"
+            else:
+                raise QuestNotActiveError
+        else:
+            raise QuestNotFoundError
                                               
 
 def abandon_quest(character, quest_id):
