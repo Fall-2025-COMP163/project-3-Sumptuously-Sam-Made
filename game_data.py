@@ -50,10 +50,12 @@ def load_quests(filename="data/quests.txt"):
             for line in content:
                 if line == "\n" or line == "":
                     quest_data_dict[key] = data_dict
+                    key = ""
+                    data_dict = {}
                 else:
                     sp_line = line.strip().split(":")
                     if sp_line[0] == "QUEST_ID":
-                        key = sp_line[1].strip()
+                        key = sp_line[1]
                         data_dict[sp_line[0].lower()] = sp_line[1]
                     elif sp_line[0] == "REQUIRED_LEVEL":
                         data_dict[sp_line[0].lower()] = sp_line[1].strip()
