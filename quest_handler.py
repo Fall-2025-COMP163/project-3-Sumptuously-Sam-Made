@@ -122,9 +122,9 @@ def complete_quest(character, quest_id, quest_data_dict):
         if quest_sp in character["active_quests"]:
             character["active_quests"].remove(quest_sp)
             character["completed_quests"].append(quest_id)
-            character_manager.gain_experience(character, quest_data_dict[quest_id]["reward_xp"])
-            character_manager.add_gold(character, quest_data_dict[quest_id]["reward_gold"])
-            return f"{quest_data_dict[quest_id]["reward_gold"]}, {quest_data_dict[quest_id]["reward_xp"]}"
+            character_manager.gain_experience(character, quest_data_dict[quest_sp]["reward_xp"])
+            character_manager.add_gold(character, quest_data_dict[quest_sp]["reward_gold"])
+            return f"{quest_data_dict[quest_sp]["reward_gold"]}, {quest_data_dict[quest_sp]["reward_xp"]}"
         else:
             raise QuestNotActiveError
     else:
