@@ -303,7 +303,7 @@ def purchase_item(character, item_id, item_data):
     
     if int(character["gold"]) >= int(item_data["cost"]):
         if len(character["inventory"]) < MAX_INVENTORY_SIZE:
-            character["gold"] -= item_data["cost"]
+            character["gold"] -= int(item_data["cost"])
             character["inventory"].append(item_id)
             return True
         else:
