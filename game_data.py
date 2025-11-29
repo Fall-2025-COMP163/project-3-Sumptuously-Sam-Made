@@ -55,7 +55,7 @@ def load_quests(filename="data/quests.txt"):
                     if sp_line[0] == "QUEST_ID":
                         key = sp_line[1].strip()
                         data_dict[sp_line[0].lower()] = sp_line[1]
-                     elif sp_line[0] == "REQUIRED_LEVEL":
+                    elif sp_line[0] == "REQUIRED_LEVEL":
                         data_dict[sp_line[0].lower()] = sp_line[1].strip()
                     else:
                         data_dict[sp_line[0].lower()] = sp_line[1]
