@@ -57,7 +57,7 @@ def accept_quest(character, quest_id, quest_data_dict):
 
     quest_sp = " " + quest_id
     if quest_sp in quest_data_dict:
-        if int(quest_data_dict[quest_sp]["required_level"]) < (character["level"]):
+        if (character["level"]) >= int(quest_data_dict[quest_sp]["required_level"]):
             if quest_data_dict[quest_sp]["prerequisite"].upper() == "NONE" or quest_data_dict[quest_sp]["prerequisite"] in character["completed_quests"]:
                 if quest_sp not in character["completed_quests"]:
                     if quest_sp not in character["active_quests"]:
@@ -73,7 +73,7 @@ def accept_quest(character, quest_id, quest_data_dict):
             raise InsufficientLevelError
         
     else:
-        if int(quest_data_dict[quest_id]["required_level"]) < (character["level"]):
+        if int(quest_data_dict[quest_id]["required_level"]) < int((character["level"])):
             if quest_data_dict[quest_id]["prerequisite"].upper() == "NONE" or quest_data_dict[quest_id]["prerequisite"] in character["completed_quests"]:
                 if quest_id not in character["completed_quests"]:
                     if quest_id not in character["active_quests"]:
